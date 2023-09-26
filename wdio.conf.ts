@@ -1,3 +1,5 @@
+import dotenv from "dotenv"
+require('dotenv').config()
 import type { Options } from '@wdio/types'
 export const config: Options.Testrunner = {
     //
@@ -31,7 +33,8 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './features/**/*.feature'
+        './features/*.feature'
+    //    './features/SauceDemo.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,9 +61,14 @@ export const config: Options.Testrunner = {
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
-    //
+    /**
+     * For headless execution uncomment chromeoptions
+     */
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome',
+        // "goog:chromeOptions":{
+        //     args:["--headless",]
+        // }
     }],
 
     //
@@ -133,14 +141,19 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        useCucumberStepReporter:true
+    }] ],
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         // require: ['./features/step-definitions/steps/*.steps.ts'],
-       require: ['./features/step-definitions/steps/*.steps.ts'],
+       require: ['./features/step-definitions/saucedemoSteps/*.steps.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -156,8 +169,8 @@ export const config: Options.Testrunner = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        //tagExpression: ''/*process.env.tag*/,
-        tags:process.env.tag,
+        tagExpression: '@demo'/*process.env.tag*/,
+       // tags:process.env.tag,
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.

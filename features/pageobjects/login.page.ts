@@ -9,13 +9,9 @@ class LoginPage{
      */
     get inputUsername () { return $('#user-name'); }
 
-    get inputPassword () {
-        return $('#password');
-    }
+    get inputPassword () {return $('#password'); }
 
-    get btnSubmit () {
-        return $('#login-button');
-    }
+    get btnSubmit () { return $('#login-button');}
 
     /**
      * a method to encapsule automation code to interact with the page
