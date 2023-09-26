@@ -94,8 +94,8 @@ export const config: Options.Testrunner = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    // baseUrl: 'https://www.saucedemo.com',
-    baseUrl: 'https://the-internet.herokuapp.com',
+    baseUrl: 'https://www.saucedemo.com',
+    // baseUrl: 'https://the-internet.herokuapp.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -140,7 +140,7 @@ export const config: Options.Testrunner = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         // require: ['./features/step-definitions/steps/*.steps.ts'],
-       require: ['./features/step-definitions/*.steps.ts'],
+       require: ['./features/step-definitions/steps/*.steps.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

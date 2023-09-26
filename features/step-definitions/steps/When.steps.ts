@@ -3,7 +3,7 @@ import {  When } from '@wdio/cucumber-framework';
 // import {  $ } from '@wdio/globals'
 import loginPage from '../../pageobjects/login.page';
 
-When (/^I login with "([^"]*)?" and "([^"]*)?"$/,  
+When (/^I login with valid "([^"]*)?" and "([^"]*)?"$/,  
 async  (username:string,password:string)=> {
     loginPage.login(username,password)
 });
