@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run ./wdio.conf.ts",
     "demo": "npx wdio wdio.conf.ts --cucumberOpts.tagExpression=@demo",
-    "report":"allure generate allure-results --clean && allure open  "
+    "report": "allure generate allure-results --clean && allure open  "
   },
   "keywords": [
     "webdriverio",
@@ -30,5 +30,8 @@
     "fs": "^0.0.1-security",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/chai": "^4.3.6"
   }
 }

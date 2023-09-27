@@ -1,6 +1,12 @@
-import { data } from "jquery";
-const fs=require ('fs') 
-let testData=JSON.parse(fs.readFileSync('../resource/data.json'))
-testData.forEach(({username,password})=> {
-    console.log(username, password)
-});
+// const sample = require('./data.json');
+// function func() {
+//     fetch("./data.json")
+//         .then((res) => {
+//         return res.json();
+//     })
+//     .then((data) => console.log(data));
+// }
+import data from "./data.json"
+ export default async() =>{
+    const value= await JSON.parse(JSON.stringify(data))
+};

@@ -1,9 +1,12 @@
-[{
+{
     "username":"standard_user",
     "passrowd":"secret_sauce",
-    "productPageTitle":"Swag Labs",
+    "productPageHeader":"Swag Labs",
+    "productPageTitle":"Products",
+    "product":"Sauce Labs Fleece Jacket",
     "firstName":"mirza",
     "lastName":"baig",
-    "postalCode":"122434"
+    "postalCode":"122434",
+    "thankYouMsg": "Thank you for your order!"
 
-}]
+}
