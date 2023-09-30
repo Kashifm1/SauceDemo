@@ -3,6 +3,7 @@
         "moduleResolution": "node",
         "module": "commonjs",
         "target": "es2022",
+        "esModuleInterop": true,
         "types": [
             "node",
             "@wdio/globals/types",
@@ -19,7 +20,4 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": [
-        "test"
-    ]
 }

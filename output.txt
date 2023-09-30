@@ -1,0 +1,39 @@
+
+> abc@1.0.0 demo
+> npx wdio wdio.conf.ts --cucumberOpts.tagExpression=@demo
+
+
+Execution of 3 workers started at 2023-09-28T18:40:49.816Z
+
+[0-1] RUNNING in chrome - file:///features/SauceDemo.feature
+[0-1] -------------standard_user, secret_sauce-----------------------
+[0-1] --------------clicked---------------
+[0-1] 1
+[0-1] [ 49.99, 29.99, 15.99, 15.99, 9.99, 7.99 ]
+[0-1] PASSED in chrome - file:///features/SauceDemo.feature
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 117.0.5938.132 mac os x #0-1] Running: chrome (v117.0.5938.132) on mac os x
+[chrome 117.0.5938.132 mac os x #0-1] Session ID: 3dc1a072653ba1b6229fd81d2786aeba
+[chrome 117.0.5938.132 mac os x #0-1]
+[chrome 117.0.5938.132 mac os x #0-1] » /features/SauceDemo.feature
+[chrome 117.0.5938.132 mac os x #0-1] The Internet website homepage
+[chrome 117.0.5938.132 mac os x #0-1] As a user, I can open the website
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ Given I open the sauceDemo site
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ Then I expect the title Swag Labs is displayed
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ When I login with valid username and password
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ Then I expect the product page is displayed
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I expect that add to cart is clickable
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I click on highest price product
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I go to cart
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I click on checkout
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I enter firstName, lastName, postalCode and click on continue
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I click on the finish button
+[chrome 117.0.5938.132 mac os x #0-1]    ✓ And I expect Thank you for your order! header should be displayed
+[chrome 117.0.5938.132 mac os x #0-1]
+[chrome 117.0.5938.132 mac os x #0-1] 11 passing (5.1s)
+
+
+Spec Files:	 1 passed, 2 skipped, 3 total (100% completed) in 00:00:11 
+

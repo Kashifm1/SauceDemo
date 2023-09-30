@@ -1,4 +1,0 @@
-{
-  "using": "xpath",
-  "value": "//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item_description']//button[text()='Add to cart']"
-}

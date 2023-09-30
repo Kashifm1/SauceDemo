@@ -1,12 +1,21 @@
 {
-    "username":"standard_user",
-    "passrowd":"secret_sauce",
     "productPageHeader":"Swag Labs",
     "productPageTitle":"Products",
     "product":"Sauce Labs Fleece Jacket",
+    "highIndex":0,
     "firstName":"mirza",
     "lastName":"baig",
     "postalCode":"122434",
-    "thankYouMsg": "Thank you for your order!"
+    "thankYouMsg": "Thank you for your order!",
+    
+    "zohoTitle":"Zoho | Cloud Software Suite for Businesses",
+    "homePageHeader":"Some of our most popular apps",
+
+    
+    "popupText":"Login",
+    "mobile":"iphone14",
+    "flipkartHomeTitle":"Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!"
+
+
 
 }

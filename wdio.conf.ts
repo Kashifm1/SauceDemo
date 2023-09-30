@@ -1,4 +1,3 @@
-import dotenv from "dotenv"
 require('dotenv').config()
 import type { Options } from '@wdio/types'
 export const config: Options.Testrunner = {
@@ -33,7 +32,7 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './features/*.feature'
+        './features/feature/*.feature'
     //    './features/SauceDemo.feature'
     ],
     // Patterns to exclude.
@@ -275,7 +274,10 @@ export const config: Options.Testrunner = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
+    // afterStep: async function (step, scenario, result, context) {
+    //     if(!result.passed){
+    //         await browser.takeScreenshot()
+    //     }
     // },
     /**
      *
