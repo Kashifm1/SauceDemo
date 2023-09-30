@@ -1,7 +1,6 @@
 import {  When } from '@wdio/cucumber-framework';
 import loginPage from '../../pageobjects/sauceDemoPage/login.page';
-import ZohoLoginPage from '../../pageobjects/ZohoPage/ZohoLogin.page';
-import HomePage from '../../pageobjects/flipkartPage/Home.page';
+import LoginPage from '../../pageobjects/sauceDemoPage/actitimePage/Login.page';
 const data = require("../../resource/data.json");
 
 
@@ -12,16 +11,7 @@ async  ()=> {
      await loginPage.login(username, password )
 });
 
-When(/^I sign in using zohoUsername and zohoPassword$/,async ()=>{
-    await ZohoLoginPage.zohoSignIn(process.env.ZOHO_USERNAME,process.env.ZOHO_PASSWORD);
-});
-When(/^I search iphone14$/,async () => {
-    await HomePage.searchProduct(data.mobile)
-  })
+When(/^I login with valid actitime username and password$/, async function(){
+    await LoginPage.userLoginDetails(process.env.ACTI_USERNAME, process.env.ACTI_PASSWORD)
+})
 
-  When(/^As an (.*) user login to nocommerce site$/, async function(){
-
-  })
-  When(/^Search user in customer list$/, async function(){
-    
-  })

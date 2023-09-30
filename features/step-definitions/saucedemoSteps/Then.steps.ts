@@ -5,13 +5,12 @@ import ProductPage from "../../pageobjects/sauceDemoPage/Product.page";
 import CartPage from "../../pageobjects/sauceDemoPage/Cart.page";
 import CheckoutOverviewPage from "../../pageobjects/sauceDemoPage/CheckoutOverview.page";
 import CheckoutCompletePage from "../../pageobjects/sauceDemoPage/CheckoutComplete.page";
+import ActiHomePage from "../../pageobjects/sauceDemoPage/actitimePage/ActiHome.page";
 import chai from "chai";
+import TasksPage from "../../pageobjects/sauceDemoPage/actitimePage/Tasks.page";
+import CreateCustomerPage from "../../pageobjects/sauceDemoPage/actitimePage/CreateCustomer.page";
+import CreateNewProjectPage from "../../pageobjects/sauceDemoPage/actitimePage/CreateNewProject.page";
 const data = require("../../resource/data.json");
-import homepage from "../../pageobjects/ZohoPage/home.page";
-import ZohoSignInPage from "../../pageobjects/ZohoPage/ZohoSignIn.page";
-import LoginPopupPage from "../../pageobjects/flipkartPage/LoginPopup.page";
-import AppleProductPage from "../../pageobjects/flipkartPage/AppleProduct.page";
-const api= require("../../../helper/checkApi.json")
 
 Then(/^I expect the title Swag Labs is displayed$/, async function () {
   let currentTitle = await browser.getTitle();
@@ -61,48 +60,67 @@ Then(
   }
 );
 
-//Zoho
+//Actitime
+Then(/^I expect login page should be displayed$/, async function(){
+  const title=await browser.getTitle()
+  chai.expect(title).to.equal(data.actitimeLoginTitle)
 
-Then(/^I click on sign in button$/, async function () {
-  await ZohoSignInPage.signIn.click();
-});
-Then(/^I expect zoho homepage should be displayed$/, async function () {
-  expect(homepage.zohoHeader).toBeDisplayed();
-});
-Then(
-  /^I expect  Some of our most popular apps header should be displayed$/,
-  async () => {
-    let text=await homepage.zohoHeader.getText()
-    chai
-      .expect(text)
-      .to.be.equal(data.homePageHeader);
-  }
-);
+})
+Then(/^I expect actitime home page should be displayed$/, async function(){
+  await ActiHomePage.tasks.waitForDisplayed()
+  const title1=await browser.getTitle();
+  let new_title= await title1.trim()
+    let expectedTitle=await data.actiHomeTitle.trim()
+    chai.expect(new_title).to.equal(expectedTitle)
+})
+Then(/^I click on tasks link$/, async function(){
+  await ActiHomePage.tasks.click()
+  
+})
+Then(/^I expect tasks page should be displayed$/, async function(){
+  await TasksPage.addNew.waitForClickable()
+  const title=await browser.getTitle()
+  const expectedTitle=data.actitimeTaskTitle
+  chai.expect(title).to.equal(expectedTitle)
 
-//flipkart
-Then(/^I click on cancel popup$/, async () => {
-  let a=await api.data[1].email
-  console.log("============"+a+"============");
-  try {
-    await browser.pause(1000);
-    await LoginPopupPage.cancelClick();
-  } catch (error) {
-    console.log("No popups got");
-  }
-});
-Then(/^I print all products with price$/, async () => {
-  await AppleProductPage.productDetails();
-});
-Then(/^I click on lowest price product$/, async function () {
-  await ProductPage.addProducts(data.lowIndex);
-});
-Then(/^I expect login popup should be displayed$/, async function () {
-  await chai.expect(LoginPopupPage.popupText).to.equal(data.popupText);
-});
-Then(/^I expect flipkart home page should be displayed$/, async function () {
-  let title=await browser.getTitle()
-  chai.expect(await title.trim()).to.be.equal(data.flipkartHomeTitle)
-});
+})
+Then(/^I click on new customer$/, async function(){
+  await TasksPage.addNew.click()
+  await TasksPage.newCustomer.click()
+})
+Then(/^I expect new customer page should be displayed$/, async function(){
+  await CreateCustomerPage.header.waitForDisplayed()
+  let customerText=await CreateCustomerPage.header.getText()
+  chai.expect(customerText).to.equal(data.customerHeader)
+  // await browser.debug()
+})
+Then(/^I enter customerName, description, select an option from existing customer and click on create$/, async function(){
+  const num = Math.floor(Math.random() * 100) + 1
+  await CreateCustomerPage.createCustomer(data.customerName+num, data.custDescription)
+})
+Then(/^I expect customer name should be visible$/, async function(){
+  
+})
+Then(/^I click on new project$/, async function(){
+  await browser.pause(3000)
+  await TasksPage.addNew.click()
+  await TasksPage.newProject.click()
+})
+Then(/^I expect project name should be visible$/, async function(){
+  await CreateNewProjectPage.projectHeader.waitForDisplayed()
+  let header=await CreateNewProjectPage.projectHeader.getText()
+  chai.expect(header).to.equal(data.projectHeader)
+})
+Then(/^I enter project name, customer, description, tasks and click on create$/,async function(){
+  const num = Math.floor(Math.random() * 100) + 1
+  await CreateNewProjectPage.createProjectDetails(data.createNewProject+num, data.projectDescription, data.projectTaskName)
 
-//E2ETest
-Then(/^verify if all users exist in customers list$/, async function () {});
+})
+Then(/^I click on logout$/, async function(){
+  await ActiHomePage.logout.click()
+})
+Then(/^I expect actitime login page should be displayed$/, async function(){
+  const loginUrl=await browser.getUrl()
+  chai.expect(loginUrl).to.equal(data.actitimeUrl)
+})
+

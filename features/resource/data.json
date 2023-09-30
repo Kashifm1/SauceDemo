@@ -14,7 +14,22 @@
     
     "popupText":"Login",
     "mobile":"iphone14",
-    "flipkartHomeTitle":"Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!"
+    "flipkartHomeTitle":"Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!",
+
+    "actitimeUrl":"https://demo.actitime.com/login.do",
+    "actitimeLoginTitle":"actiTIME - Login",
+    "actiHomeTitle":"actiTIME - Enter Time-Track",
+    "actitimeTaskTitle":"actiTIME - Task List",
+    "customerHeader":"Create New Customer",
+    "customerName":"kash",
+    "custDescription":"newly joined",
+    "customerCompany":"Karthik",
+    "createNewProject":"Kashnew",
+    "projectDescription":"ProjectNew",
+    "projectTaskName":"Entertainment",
+    "projectHeader":"Create New Project",
+    "projectCustomerName":"kash"
+
 
 
 

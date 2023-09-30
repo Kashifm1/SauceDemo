@@ -7,16 +7,9 @@ Given (/^I open the sauceDemo site$/, async function( ) {
     await browser.maximizeWindow()
     console.log(`-------------${process.env.USER_NAME}, ${process.env.PASSWORD}-----------------------`)
 });
- Given(/^I open the zoho site$/, async function () {
-    await browser.url("https://www.zoho.com/")
+
+Given(/^I go to actitime demo website$/, async function(){
+    await browser.url('/login.do')
     await browser.maximizeWindow()
+})
 
- })
- Given(/^I open the flipkart site$/,async()=>{
-await browser.url("https://www.flipkart.com/")
-await browser.maximizeWindow()
- })
-
- Given(/^Get list of (.*) from reqres.in$/, async function(){
-     
- })

@@ -7,7 +7,7 @@ Background: launch and login into apps
     When I login with valid username and password
     Then I expect the product page is displayed
   
-   @demo
+  #  @demo
   Scenario Outline: As a user, I can open the website
     # Given I open the sauceDemo site
     # Then I expect the title Swag Labs is displayed
